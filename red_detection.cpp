@@ -59,6 +59,7 @@ cv::Point get_coord(cv::Mat* image, cv::VideoCapture* cap)
 
 int main(int argc, char* argv[])
 {
+    /*
     struct termios serial;
     int fd = open(argv[1], O_RDWR | O_NOCTTY | O_NDELAY);
     if (fd == -1) {
@@ -80,7 +81,7 @@ int main(int argc, char* argv[])
     serial.c_cflag = B115200 | CS8 | CREAD;
 
     tcsetattr(fd, TCSANOW, &serial);
-
+    */
     cv::Mat image;
     //cv::namedWindow("Match", CV_WINDOW_NORMAL);
 
@@ -92,6 +93,7 @@ int main(int argc, char* argv[])
     while (1) {
         cv::Point point = get_coord(&image, &cap);
         printf("Hey %d %d!\n", point.x, point.y);
+        /*
         char msg[40] = {};
         if (point.x == INT_MAX) {
             sprintf(msg, "not found\n");
@@ -103,6 +105,7 @@ int main(int argc, char* argv[])
             perror("Write");
             return -1;
         }
+        */
         if( cv::waitKey(10) == 27 ) break;
     }
 
