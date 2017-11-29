@@ -1,5 +1,5 @@
-#include <opencv.hpp>
-#include <highgui/highgui.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -49,7 +49,7 @@ cv::Point get_coord(cv::Mat* image, cv::VideoCapture* cap)
     //cv::imshow("Match", img_display);
     if (circles.size() != 0) {
         cv::Point center(std::round(x_coord/circles.size()), std::round(y_coord/circles.size()));
-        cv::circle(img_display, center, std::round(radius/circles.size()), cv::Scalar(0, 255, 0), 5);
+        //cv::circle(img_display, center, std::round(radius/circles.size()), cv::Scalar(0, 255, 0), 5);
         cv::Point landingPoint((std::round(x_coord/circles.size() - image->cols/2.0)),
                                (std::round(y_coord/circles.size() - image->rows/2.0)));
         return landingPoint;
